@@ -18,6 +18,12 @@ public class FindMissingNumber {
         return nums.length;
     }
 
+    /*
+    Other Optimal Approch
+            // Summation of first N natural numbers
+        int sum1 = (N * (N + 1)) / 2;
+     */
+
     public static void main(String[] var0) {
         int[] var1 = new int[]{0, 2, 3, 1, 4};
         FindMissingNumber findMissingNumber = new FindMissingNumber();
