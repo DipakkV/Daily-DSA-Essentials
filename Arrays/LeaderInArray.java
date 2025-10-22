@@ -19,27 +19,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LeaderInArray {
-    public List<Integer> leaders(int[] nums) {
-        int arrSize = nums.length;
-        List<Integer> result = new ArrayList<>();
-        for(int i=0; i<arrSize-1; i++){
-            boolean offSet = false;
-            for(int j = i+1; j < arrSize; j++){
-                if(nums[j] >= nums[i]){
-                    offSet = true;
-                    break;
-                }
-            }
-            if(!offSet){
-                result.add(nums[i]);
-            }
-        }
-        result.add(nums[arrSize-1]);
-//        for(int res : result){
-//            System.out.println(res);
+//    public List<Integer> leaders(int[] nums) {
+//        int arrSize = nums.length;
+//        List<Integer> result = new ArrayList<>();
+//        for(int i=0; i<arrSize-1; i++){
+//            boolean offSet = false;
+//            for(int j = i+1; j < arrSize; j++){
+//                if(nums[j] >= nums[i]){
+//                    offSet = true;
+//                    break;
+//                }
+//            }
+//            if(!offSet){
+//                result.add(nums[i]);
+//            }
 //        }
-        return result;
+//        result.add(nums[arrSize-1]);
+////        for(int res : result){
+////            System.out.println(res);
+////        }
+//        return result;
+//    }
+
+public List<Integer> leaders(int[] nums) {
+    int arrSize = nums.length;
+    int maxElement = Integer.MIN_VALUE;
+    List<Integer> result = new ArrayList<>();
+    result.add(nums[arrSize-1]);
+    for(int i = arrSize - 2;i >=0; i--){
+        if(nums[i] > maxElement){
+            result.add(nums[i]);
+            maxElement = nums[i];
+        }
     }
+    for(int res : result){
+        System.out.println(res);
+    }
+    return result;
+}
+
 
     public static void main(String[] var0) {
         int[] var1 = new int[]{-3, 4, 5, 1, -4, -5};
